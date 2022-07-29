@@ -29,9 +29,9 @@ class _FavoritePokemonsWidgetState extends State<FavoritePokemonsWidget>
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<FavoritePokemonsBloc>().add(GetAllFavoritePokemonsEvent());
-      context
-          .read<FavoritePokemonsBloc>()
-          .add(GetAllFavoritePokemonStreamEvent());
+      // context
+      //     .read<FavoritePokemonsBloc>()
+      //     .add(GetAllFavoritePokemonStreamEvent());
     });
   }
 
@@ -60,6 +60,7 @@ class _FavoritePokemonsWidgetState extends State<FavoritePokemonsWidget>
             itemBuilder: (BuildContext context, int index) {
               double screenWidth = MediaQuery.of(context).size.width;
               return ItemPokemonTileWidget(
+                key: ObjectKey(state.pokemons[index]),
                 pokemonDetailEntity: state.pokemons[index],
                 screenWidth: screenWidth,
                 onTileClicked: () {

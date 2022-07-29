@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rohankandwal.pokemon.byzat_pokemon">
+    package="com.rohankandwal.pokemon">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

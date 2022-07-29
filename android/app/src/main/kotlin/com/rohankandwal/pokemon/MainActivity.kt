@@ -1,4 +1,4 @@
-package com.rohankandwal.pokemon.byzat_pokemon
+package com.rohankandwal.pokemon
 
 import io.flutter.embedding.android.FlutterActivity
 

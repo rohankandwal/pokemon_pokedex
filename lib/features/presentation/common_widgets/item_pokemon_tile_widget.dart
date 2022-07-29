@@ -66,9 +66,10 @@ class _ItemPokemonTileWidgetState extends State<ItemPokemonTileWidget> {
     return Container(
       color: widget.getRandomColor(0.2, widget.pokemonDetailEntity.hashCode),
       child: NetworkImageWidget(
-          width: widget.screenWidth,
-          height: 104,
-          imageUrl: widget.pokemonDetailEntity.imageUrl ?? ""),
+        width: widget.screenWidth,
+        height: 104,
+        imageUrl: widget.pokemonDetailEntity.imageUrl ?? "",
+      ),
     );
   }
 

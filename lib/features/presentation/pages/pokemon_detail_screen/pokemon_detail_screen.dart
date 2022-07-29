@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:byzat_pokemon/core/config/localization.dart';
 import 'package:byzat_pokemon/core/config/navigation.dart';
 import 'package:byzat_pokemon/core/utils/constants.dart';
 import 'package:byzat_pokemon/core/utils/extension_function.dart';
+import 'package:byzat_pokemon/core/utils/utility.dart';
 import 'package:byzat_pokemon/features/domain/entities/pokemon_detail_entity.dart';
 import 'package:byzat_pokemon/features/presentation/common_widgets/custom_spacer_widget.dart';
 import 'package:byzat_pokemon/features/presentation/common_widgets/favorite_button/favorite_bloc.dart';
@@ -183,7 +182,10 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
               const CustomSpacerWidget(width: 48),
               _getInformationColumn(
                   label: MyLocalizations.of(context).getString("bmi"),
-                  info: getBMI().toInt().toString()),
+                  info: Utility()
+                      .getBMI((_pokemonDetailEntity?.weight.toDouble() ?? 0.0),
+                          (_pokemonDetailEntity?.height.toDouble() ?? 0.0))
+                      .toString()),
             ],
           ),
         ),
@@ -295,14 +297,6 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
     }
     _averagePower = total / _pokemonDetailEntity!.stats.length;
     return _powers;
-  }
-
-  double getBMI() {
-    if (_pokemonDetailEntity == null) {
-      return 0;
-    }
-    return (_pokemonDetailEntity?.weight ?? 0) /
-        (pow(_pokemonDetailEntity?.height ?? 0, 2));
   }
 
   Color _getValueColor(final String stat) {

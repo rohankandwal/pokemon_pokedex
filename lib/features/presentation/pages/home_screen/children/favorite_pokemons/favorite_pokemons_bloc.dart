@@ -50,6 +50,7 @@ class FavoritePokemonsBloc
     /// so we need to fetch it manually the first time
     getAllFavoritePokemonsListUseCase(NoParams()).then(
         (value) => value.fold((l) => add(NoFavoritePokemonsEvent()), (data) {
+              add(GetAllFavoritePokemonStreamEvent());
               if (data.isNotEmpty) {
                 add(AllFavoritePokemonsFoundEvent(data));
               } else {
